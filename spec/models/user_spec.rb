@@ -31,19 +31,19 @@ RSpec.describe User, type: :model do
 
   it { should have_many(:devices) }
 
-  feature 'instance_methods' do
-    feature '#full_name' do
+  describe 'instance_methods' do
+    describe '#full_name' do
       let!(:user) { create(:user) }
 
-      scenario 'should return full name' do
+      it 'should return full name' do
         expect(user.full_name).to eq "#{user.first_name} #{user.last_name}"
       end
     end
 
-    feature '#full_title' do
+    describe '#full_title' do
       let!(:user) { create(:user) }
 
-      scenario 'should return full title' do
+      it 'should return full title' do
         expect(user.full_title).to eq "#{user.first_name} #{user.last_name} (#{user.email})"
       end
     end
